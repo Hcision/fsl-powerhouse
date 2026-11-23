@@ -1,0 +1,13 @@
+{
+  "name": "fsl-powerhouse",
+  "owner": {
+    "name": "FSL Powerhouse maintainers"
+  },
+  "plugins": [
+    {
+      "name": "fsl-powerhouse",
+      "source": "./",
+      "description": "Source-grounded Salesforce development and architecture with dedicated Field Service workflows."
+    }
+  ]
+}

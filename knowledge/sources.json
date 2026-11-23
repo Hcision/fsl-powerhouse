@@ -1,0 +1,282 @@
+[
+  {
+    "topic": "release",
+    "id": "release-overview",
+    "title": "Salesforce release notes",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&type=5&id=release-notes.salesforce_release_notes.htm&release=latest",
+    "monitor": true
+  },
+  {
+    "topic": "release",
+    "id": "winter-27",
+    "title": "Winter ’27 pinned baseline",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&type=5&id=release-notes.salesforce_release_notes.htm&release=249",
+    "monitor": false
+  },
+  {
+    "topic": "release",
+    "id": "release-changes",
+    "title": "Release note change log",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&type=5&id=release-notes.rn_change_log.htm",
+    "monitor": true
+  },
+  {
+    "topic": "release",
+    "id": "release-updates",
+    "title": "Enforcement and opt-in updates",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&type=5&id=release-notes.rn_ru.htm",
+    "monitor": true
+  },
+  {
+    "topic": "release",
+    "id": "known-issues",
+    "title": "Salesforce Known Issues",
+    "url": "https://issues.salesforce.com/",
+    "monitor": false
+  },
+  {
+    "topic": "fsl-core",
+    "id": "fsl-help",
+    "title": "Field Service Help and topic tree",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&type=5&id=sf.fs_overview.htm",
+    "monitor": true
+  },
+  {
+    "topic": "fsl-core",
+    "id": "fsl-dev",
+    "title": "Field Service Developer Guide and FSL Apex/API entry point",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.field_service_dev.meta/fsl_dev_tooling.htm",
+    "monitor": true
+  },
+  {
+    "topic": "fsl-core",
+    "id": "fsl-model",
+    "title": "Field Service data model",
+    "url": "https://architect.salesforce.com/diagrams/template-gallery/field-service",
+    "monitor": false
+  },
+  {
+    "topic": "fsl-core",
+    "id": "fsl-release",
+    "title": "Field Service release notes and patch links",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&type=5&id=release-notes.rn_fieldservice.htm",
+    "monitor": true
+  },
+  {
+    "topic": "fsl-scheduling",
+    "id": "fsl-scheduling",
+    "title": "Scheduling and optimization",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&type=5&id=service.fs_manage_scheduling_parent.htm",
+    "monitor": false
+  },
+  {
+    "topic": "fsl-scheduling",
+    "id": "fsl-customer",
+    "title": "Field Service customer engagement and booking release notes",
+    "url": "https://help.salesforce.com/s/articleView?id=sf.mfs_appointment_assistant_sss_parent.htm&language=en_US&type=5",
+    "monitor": false
+  },
+  {
+    "topic": "fsl-maintenance",
+    "id": "fsl-maintenance",
+    "title": "Maintenance plans and work order generation",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&type=5&id=sf.fs_create_maintenance.htm",
+    "monitor": false
+  },
+  {
+    "topic": "fsl-mobile",
+    "id": "fsl-mobile",
+    "title": "Develop offline LWCs for Field Service",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/sfs-gs-lwc-fs-offline.html",
+    "monitor": false
+  },
+  {
+    "topic": "apex",
+    "id": "apex-dev",
+    "title": "Apex Developer Guide",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/",
+    "monitor": false
+  },
+  {
+    "topic": "apex",
+    "id": "apex-ref",
+    "title": "Apex Reference Guide",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/",
+    "monitor": false
+  },
+  {
+    "topic": "lwc",
+    "id": "lwc-guide",
+    "title": "Lightning Web Components Developer Guide",
+    "url": "https://developer.salesforce.com/docs/platform/lwc/guide",
+    "monitor": false
+  },
+  {
+    "topic": "lwc",
+    "id": "lwc-components",
+    "title": "Lightning Component Library",
+    "url": "https://developer.salesforce.com/docs/component-library/overview/components",
+    "monitor": false
+  },
+  {
+    "topic": "lwc",
+    "id": "lwc-secure-apex",
+    "title": "Secure Apex Classes for LWC",
+    "url": "https://developer.salesforce.com/docs/platform/lwc/guide/apex-security",
+    "monitor": false
+  },
+  {
+    "topic": "lwc",
+    "id": "lws",
+    "title": "Lightning Web Security",
+    "url": "https://developer.salesforce.com/docs/platform/lightning-components-security/guide",
+    "monitor": false
+  },
+  {
+    "topic": "flow",
+    "id": "flow-help",
+    "title": "Salesforce Flow documentation",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&type=5&id=sf.flow.htm",
+    "monitor": false
+  },
+  {
+    "topic": "flow",
+    "id": "record-automation",
+    "title": "Record-triggered automation decision guide",
+    "url": "https://architect.salesforce.com/docs/architect/decision-guides/guide/record-triggered",
+    "monitor": false
+  },
+  {
+    "topic": "architecture",
+    "id": "well-architected",
+    "title": "Salesforce Well-Architected",
+    "url": "https://architect.salesforce.com/well-architected/overview",
+    "monitor": false
+  },
+  {
+    "topic": "architecture",
+    "id": "integration",
+    "title": "Integration patterns",
+    "url": "https://architect.salesforce.com/docs/architect/fundamentals/guide/integration-patterns",
+    "monitor": false
+  },
+  {
+    "topic": "architecture",
+    "id": "sharing",
+    "title": "Platform sharing architecture",
+    "url": "https://architect.salesforce.com/docs/architect/fundamentals/guide/platform-sharing-architecture",
+    "monitor": false
+  },
+  {
+    "topic": "architecture",
+    "id": "metadata",
+    "title": "Metadata API Developer Guide",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_meta.meta/api_meta/",
+    "monitor": false
+  },
+  {
+    "topic": "delivery",
+    "id": "sf-cli",
+    "title": "Salesforce CLI Command Reference",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/",
+    "monitor": false
+  },
+  {
+    "topic": "delivery",
+    "id": "dx",
+    "title": "Salesforce DX Developer Guide",
+    "url": "https://developer.salesforce.com/docs/platform/sfdx-dev/guide",
+    "monitor": false
+  },
+  {
+    "topic": "delivery",
+    "id": "analyzer",
+    "title": "Salesforce Code Analyzer",
+    "url": "https://developer.salesforce.com/docs/platform/salesforce-code-analyzer/overview",
+    "monitor": false
+  },
+  {
+    "topic": "delivery",
+    "id": "metadata-coverage",
+    "title": "Metadata Coverage Report",
+    "url": "https://developer.salesforce.com/docs/success/metadata-coverage-report/references/metadata-coverage-report",
+    "monitor": false
+  },
+  {
+    "topic": "platform",
+    "id": "object-model",
+    "title": "Salesforce Object Reference",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/",
+    "monitor": false
+  },
+  {
+    "topic": "platform",
+    "id": "rest",
+    "title": "REST API Developer Guide",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/",
+    "monitor": false
+  },
+  {
+    "topic": "platform",
+    "id": "limits",
+    "title": "Salesforce limits and allocations",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&type=5&id=sf.overview_limits_general.htm",
+    "monitor": false
+  },
+  {
+    "topic": "platform",
+    "id": "agentforce",
+    "title": "Agentforce Developer Guide",
+    "url": "https://developer.salesforce.com/docs/ai/agentforce/overview",
+    "monitor": false
+  },
+  {
+    "topic": "fsl-core",
+    "id": "fsl-work-plans",
+    "title": "Get started with Work Plans",
+    "url": "https://help.salesforce.com/s/articleView?id=service.fs_work_plans_set_up.htm&language=en_US&type=5",
+    "monitor": false
+  },
+  {
+    "topic": "agentforce",
+    "id": "agentforce-testing",
+    "title": "Agentforce Testing Center",
+    "url": "https://help.salesforce.com/s/articleView?id=005228642&language=en_US&type=1",
+    "monitor": false
+  },
+  {
+    "topic": "service",
+    "id": "service-help",
+    "title": "Service Cloud Documentation",
+    "url": "https://help.salesforce.com/s/articleView?id=service.service_cloud.htm&language=en_US&type=5",
+    "monitor": false
+  },
+  {
+    "topic": "knowledge-grounding",
+    "id": "lightning-knowledge-guide",
+    "title": "Lightning Knowledge Implementation Guide",
+    "url": "https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/lightning_knowledge_guide.pdf",
+    "monitor": false
+  },
+  {
+    "topic": "knowledge-grounding",
+    "id": "lightning-knowledge-enable",
+    "title": "Enable Lightning Knowledge",
+    "url": "https://help.salesforce.com/s/articleView?id=service.knowledge_lightning_enable.htm&type=5",
+    "monitor": false
+  },
+  {
+    "topic": "knowledge-grounding",
+    "id": "lightning-knowledge-trailhead",
+    "title": "Enhance Agentforce Service with Lightning Knowledge",
+    "url": "https://trailhead.salesforce.com/fr/content/learn/trails/enhance-service-cloud-with-lightning-knowledge",
+    "monitor": false
+  },
+  {
+    "topic": "knowledge-grounding",
+    "id": "agentforce-data-library",
+    "title": "Agentforce Data Library",
+    "url": "https://help.salesforce.com/s/articleView?id=ai.data_library_parent.htm&language=en_US&type=5",
+    "monitor": false
+  }
+]
