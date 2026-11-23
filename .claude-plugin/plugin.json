@@ -7,6 +7,7 @@
   },
   "homepage": "https://github.com/Hcision/fsl-powerhouse",
   "repository": "https://github.com/Hcision/fsl-powerhouse",
+  "license": "MIT",
   "keywords": [
     "salesforce",
     "field-service",

@@ -58,3 +58,7 @@ Public Salesforce documentation is fetched live. Consulting your org’s private
 ## SkillSpector static scan
 
 From a clean checkout, run `skillspector scan . --no-llm --use-shipped-baseline --show-suppressed --fail-on-incomplete`. The checked-in baseline records two reviewed calls to the optional `sf-docs` CLI by exact fingerprint. Run without `--use-shipped-baseline` to see all raw findings. Review any new finding before changing the baseline.
+
+## License
+
+[MIT](LICENSE)
