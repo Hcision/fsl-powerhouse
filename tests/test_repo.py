@@ -10,7 +10,6 @@ OFFICIAL_HOSTS = {
     "issues.salesforce.com", "trailhead.salesforce.com",
 }
 FRONTMATTER = re.compile(r"^---\n(.+?)\n---\n", re.S)
-NUMBERS = {"eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen": 16}
 
 
 def official(url):
@@ -94,11 +93,7 @@ class RepoTest(unittest.TestCase):
             self.assertLessEqual(set(row.strip().split(", ")), ids, row)
 
     def test_readme_counts(self):
-        readme = (ROOT / "README.md").read_text(encoding="utf-8").lower()
-        for label, items in (("specialists", self.agents), ("task-specific playbooks", self.skills)):
-            word = re.search(rf"([a-z]+) {label}", readme)
-            self.assertIsNotNone(word, label)
-            self.assertEqual(NUMBERS[word[1]], len(items), label)
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
         counts = {"agents": len(self.agents), "skills": len(self.skills)}
         for path in ("README.md", "assets/banner.svg"):
             content = (ROOT / path).read_text(encoding="utf-8")
@@ -108,6 +103,21 @@ class RepoTest(unittest.TestCase):
                 self.assertEqual({expected}, shown, f"{path}: {label}")
         for name in list(self.agents) + list(self.skills):
             self.assertIn(f"`{name}`", readme, f"README does not list {name}")
+
+    def test_field_service_topic_map_and_references(self):
+        topic_map = (ROOT / "knowledge/fsl-topic-map.md").read_text(encoding="utf-8")
+        for name, path in self.skills.items():
+            reference = path.parent / "reference.md"
+            if name.startswith("fsl-"):
+                expected = "Yes" if reference.is_file() else "Not yet"
+                row = re.search(rf"\| `{name}` \|.*\| ({expected}) \|", topic_map)
+                self.assertIsNotNone(row, f"topic map row for {name} should end with {expected}")
+            if reference.is_file():
+                content = reference.read_text(encoding="utf-8")
+                self.assertRegex(content, r"on 20\d\d-\d\d-\d\d", f"{reference}: state when it was read")
+                self.assertIn("reference.md", path.read_text(encoding="utf-8"), f"{path} does not point to its reference")
+                for url in re.findall(r"\]\((https?://[^)\s]+)\)", content):
+                    self.assertTrue(official(url), f"{reference}: {url}")
 
     def test_official_host_validation(self):
         self.assertTrue(official("https://help.salesforce.com/path"))

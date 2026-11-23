@@ -12,10 +12,10 @@
 
 ![Claude Code plugin](https://img.shields.io/badge/Claude_Code-plugin-d97757?style=for-the-badge)
 ![Field Service](https://img.shields.io/badge/Field_Service-first-0b3a6b?style=for-the-badge)
-![Agents](https://img.shields.io/badge/agents-11-38bdf8?style=for-the-badge)
-![Skills](https://img.shields.io/badge/skills-15-22c55e?style=for-the-badge)
+![Agents](https://img.shields.io/badge/agents-13-38bdf8?style=for-the-badge)
+![Skills](https://img.shields.io/badge/skills-25-22c55e?style=for-the-badge)
 
-**[Quick start](#-quick-start)** · **[How it works](#-how-it-works)** · **[Agents](#-agents)** · **[Skills](#-skills)** · **[Live docs](#-live-documentation)** · **[Develop](#-develop)**
+**[Quick start](#-quick-start)** · **[How it works](#-how-it-works)** · **[Agents](#-agents)** · **[Skills](#-skills)** · **[Live docs](#-live-documentation)** · **[Topic map](knowledge/fsl-topic-map.md)** · **[Contribute](CONTRIBUTING.md)**
 
 </div>
 
@@ -43,7 +43,7 @@ Dedicated playbooks for scheduling, maintenance plans, mobile and operations, wi
 
 ### 🔒 Safe by default
 
-Reviewers are read-only. Deployment, activation, org writes and Jira changes need your explicit go-ahead.
+Reviewers are read-only. Deployment, activation, org writes and ticket updates need your explicit go-ahead.
 
 </td>
 </tr>
@@ -64,7 +64,7 @@ Then try one of these:
 
 > 💬 *"Use live Salesforce documentation to explain how to test an Agentforce agent. Cite the current Testing Center guidance and check whether it applies to Agentforce for Field Service."*
 
-For ticket work, give Claude the Jira IDs and ask for the ticket delivery skill. Jira and web access depend on your Claude Code environment.
+For ticket work, any tracker works. If Jira, Azure DevOps, GitHub Issues or another tool is connected to Claude Code, give the ticket ID. If not, paste the ticket text or point to a file. No connection is required.
 
 ## 🧭 How it works
 
@@ -72,7 +72,7 @@ For ticket work, give Claude the Jira IDs and ask for the ticket delivery skill.
 flowchart LR
     U([You]) --> A
     subgraph Plugin [FSL Powerhouse]
-        A[Agents<br/>11 specialists] --> S[Skills<br/>15 playbooks]
+        A[Agents<br/>13 specialists] --> S[Skills<br/>25 playbooks]
         S --> P[Research protocol]
         S --> R[API references]
         P --> C[Source catalog]
@@ -94,7 +94,7 @@ An agent preloads its playbooks, follows the research protocol to find the right
 
 ## 🤖 Agents
 
-Eleven specialists. Claude delegates to them automatically, or you can name one.
+Thirteen specialists (13 agents). Claude delegates to them automatically, or you can name one.
 
 | Agent | What it does | Mode |
 | --- | --- | --- |
@@ -102,6 +102,8 @@ Eleven specialists. Claude delegates to them automatically, or you can name one.
 | `field-service-scheduling-reviewer` | Scheduling, appointment booking, policies, Gantt and optimization | 🔍 Read-only |
 | `field-service-maintenance-reviewer` | Maintenance plans, recurrence, work order generation and volume | 🔍 Read-only |
 | `field-service-mobile-reviewer` | Mobile app, offline sync and technician workflows | 🔍 Read-only |
+| `field-service-operations-reviewer` | Service execution, inventory, asset coverage and customer engagement | 🔍 Read-only |
+| `field-service-troubleshooter` | Diagnoses Field Service failures from symptoms | 🔍 Read-only |
 | `salesforce-architect` | Architecture, integrations and standard-versus-custom fit | ✏️ Can edit |
 | `apex-engineer` | Apex triggers, transactions, async jobs, integrations and tests | ✏️ Can edit |
 | `lwc-engineer` | Lightning Web Components and Jest tests | ✏️ Can edit |
@@ -114,7 +116,7 @@ Read-only agents report findings, and the main session applies any change.
 
 ## 📚 Skills
 
-Fifteen task-specific playbooks with evidence and validation requirements.
+25 skills: task-specific playbooks with evidence and validation requirements. Field Service is covered area by area, and the [topic map](knowledge/fsl-topic-map.md) shows which skill handles what.
 
 <table>
 <tr>
@@ -124,11 +126,21 @@ Fifteen task-specific playbooks with evidence and validation requirements.
 <tr>
 <td valign="top">
 
-- `fsl-architecture`: data model, lifecycle, core versus managed package
-- `fsl-scheduling`: policies, booking, Gantt, optimization 📎
+- `fsl-architecture`: product layers, lifecycle, limits 📎
+- `fsl-workforce-territories`: resources, territories, shifts, capacity 📎
+- `fsl-scheduling`: policies, booking, optimization 📎
+- `fsl-dispatch-console`: Gantt, lists, custom actions 📎
 - `fsl-preventive-maintenance`: plans, recurrence, generation 📎
-- `fsl-mobile-offline`: mobile extensions, offline, sync
-- `fsl-operations`: assets, work plans, inventory, service reports
+- `fsl-mobile-offline`: mobile app, LWC offline, deep links 📎
+- `fsl-operations`: work plans, service reports, closure 📎
+- `fsl-inventory`: stock, requests, transfers, returns 📎
+- `fsl-assets-entitlements`: assets, warranties, SLAs, contracts
+- `fsl-customer-engagement`: live tracking, self-service booking 📎
+- `fsl-security-licensing`: licenses, permission sets, sharing 📎
+- `fsl-integration-data`: REST, actions, data loads, deployment 📎
+- `fsl-analytics`: reports, dashboards, KPIs 📎
+- `fsl-agentforce-ai`: agents and AI in Field Service 📎
+- `fsl-troubleshooting`: symptom to documented cause 📎
 
 </td>
 <td valign="top">
@@ -149,7 +161,7 @@ Fifteen task-specific playbooks with evidence and validation requirements.
 <td valign="top">
 
 - `salesforce-quality`: audit, Code Analyzer, regression, 2GP
-- `salesforce-ticket-delivery`: Jira ticket to tested change
+- `salesforce-ticket-delivery`: any ticket or pasted story to tested change
 - `salesforce-release-watch`: release impact assessment
 
 </td>
@@ -162,7 +174,7 @@ Fifteen task-specific playbooks with evidence and validation requirements.
 </tr>
 </table>
 
-📎 Ships a `reference.md` of API anchors read from official documentation.
+📎 Ships a `reference.md` of facts read from official Salesforce pages, with the date and the links.
 
 ## 🌐 Live documentation
 
@@ -199,11 +211,12 @@ Public Salesforce documentation is fetched live. Consulting your org's private K
 ```text
 fsl-powerhouse/
 ├── .claude-plugin/     plugin and marketplace manifests
-├── agents/             11 specialists
-├── skills/             15 playbooks, two with a reference.md
+├── agents/             13 specialists
+├── skills/             25 playbooks, 14 with a verified reference.md
 ├── knowledge/
 │   ├── sources.json            curated official reference catalog
-│   ├── research-protocol.md    documentation workflow and Field Service topic map
+│   ├── fsl-topic-map.md        every Field Service area and its skill
+│   ├── research-protocol.md    documentation workflow and research map
 │   └── release-baseline.md     release baseline and verified Field Service changes
 └── tests/              catalog, manifest and agent-reference checks
 ```
@@ -216,7 +229,7 @@ Clone the repository and load the plugin in place from the directory containing 
 claude --plugin-dir ./fsl-powerhouse
 ```
 
-Validate before opening a pull request:
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add a topic or a verified fact. Validate before opening a pull request:
 
 ```sh
 python3 -m unittest discover -s tests -v

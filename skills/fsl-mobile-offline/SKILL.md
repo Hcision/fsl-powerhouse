@@ -12,4 +12,6 @@ Read `${CLAUDE_PLUGIN_ROOT}/knowledge/research-protocol.md`. From `${CLAUDE_PLUG
 3. Test actual device workflows for cold start, offline execution and reconnect, including work steps, parts, signatures, photos, service reports and prerequisite records where in scope.
 4. Record reproducible device, app version, network state, test data, expected behavior and observed results.
 
+Before searching, read `${CLAUDE_SKILL_DIR}/reference.md` for LWC considerations, deep linking and service document constraints. Re-verify any anchor that a decision depends on.
+
 Return decisions and findings with source URLs, implementation evidence, checks performed and unresolved items.

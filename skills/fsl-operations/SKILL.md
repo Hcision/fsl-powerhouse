@@ -12,4 +12,6 @@ Read `${CLAUDE_PLUGIN_ROOT}/knowledge/research-protocol.md`. From `${CLAUDE_PLUG
 3. For steps and reports verify selection rules, templates, sequencing, versioning, signatures, file access and mobile support. For customer engagement verify consent, identity, guest data access and status transitions.
 4. Evaluate connected cases, entitlements, warranties, asset history, customer notifications, analytics and Agentforce workflows against the actual Field Service release and org settings.
 
+Before searching, read `${CLAUDE_SKILL_DIR}/reference.md` for service report and Document Builder anchors. Re-verify any anchor that a decision depends on.
+
 Return decisions and findings with source URLs, implementation evidence, checks performed and unresolved items.
