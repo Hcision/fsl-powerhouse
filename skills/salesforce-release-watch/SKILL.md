@@ -9,7 +9,7 @@ Read `${CLAUDE_PLUGIN_ROOT}/knowledge/research-protocol.md`. From `${CLAUDE_PLUG
 
 1. Open the current official release notes, change log, Field Service notes (including app and package patch links) and Release Updates. Verify preview versus GA and target org release, API, package, app and licensing.
 2. Trace announcements to specific files, settings, integrations and personas. Record rollout dates, enforcement dates, feature settings, prerequisites, known issues and evidence URLs.
-3. Use a sandbox validation plan with risk, owner, acceptance evidence and rollback. Treat content-change notifications as triage inputs.
+3. Use a sandbox validation plan with risk, owner, acceptance evidence and rollback.
 4. Document exact checked date and items that could not be independently verified.
 
 Return decisions and findings with source URLs, implementation evidence, checks performed and unresolved items.

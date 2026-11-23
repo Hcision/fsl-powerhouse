@@ -1,17 +1,21 @@
 import json
 from pathlib import Path
 import re
-import sys
 import unittest
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
-
-import monitor_sources as monitor  # noqa: E402
-import search_docs  # noqa: E402
-
+OFFICIAL_HOSTS = {
+    "resources.docs.salesforce.com", "help.salesforce.com", "developer.salesforce.com", "architect.salesforce.com",
+    "issues.salesforce.com", "trailhead.salesforce.com",
+}
 FRONTMATTER = re.compile(r"^---\n(.+?)\n---\n", re.S)
 NUMBERS = {"eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14, "fifteen": 15, "sixteen": 16}
+
+
+def official(url):
+    parts = urlsplit(url)
+    return parts.scheme == "https" and parts.netloc in OFFICIAL_HOSTS
 
 
 def frontmatter(path):
@@ -44,10 +48,8 @@ class RepoTest(unittest.TestCase):
         self.assertEqual(len(self.sources), len({source["id"] for source in self.sources}))
         self.assertEqual(len(self.sources), len({source["url"] for source in self.sources}))
         for source in self.sources:
-            self.assertEqual({"topic", "id", "title", "url", "monitor"}, set(source), source)
-            self.assertIsInstance(source["monitor"], bool, source)
-            self.assertTrue(monitor.official(source["url"]), source)
-        self.assertTrue(any(source["id"] == "fsl-release" and source["monitor"] for source in self.sources))
+            self.assertEqual({"topic", "id", "title", "url"}, set(source), source)
+            self.assertTrue(official(source["url"]), source)
 
     def test_frontmatter(self):
         self.assertGreaterEqual(len(self.skills), 13)
@@ -98,36 +100,11 @@ class RepoTest(unittest.TestCase):
             self.assertIsNotNone(word, label)
             self.assertEqual(NUMBERS[word[1]], len(items), label)
 
-    def test_sections_ignore_headings_inside_code_fences(self):
-        markdown = "intro\n# Setup\ntext\n```sh\n# not a heading\nrun\n```\n## Next\nmore"
-        self.assertEqual(["Overview", "Setup", "Next"], [heading for heading, _ in search_docs.sections(markdown)])
-
-    def test_fingerprint_ignores_scripts_and_detects_text_changes(self):
-        body = "<main>" + "Field Service scheduling documentation " * 12 + "</main>"
-        self.assertEqual(monitor.fingerprint(body), monitor.fingerprint(body + "<script>x</script>"))
-        self.assertNotEqual(monitor.fingerprint(body), monitor.fingerprint(body + "<p>Updated</p>"))
-        with self.assertRaises(ValueError):
-            monitor.fingerprint("<p>Unavailable</p>")
-
-    def test_probe_renders_pages_that_are_only_a_script_shell(self):
-        url = "https://help.salesforce.com/s/articleView?id=x"
-        shell = lambda _: "<body><p>Loading</p><script>app()</script></body>"  # noqa: E731
-        article = "Field Service release notes " * 20
-        digest = monitor.probe(url, renderer=lambda _: article, download=shell)
-        self.assertEqual("rendered:" + monitor.text_fingerprint(article), digest)
-        with self.assertRaisesRegex(monitor.ThinPage, "sf-docs"):
-            monitor.probe(url, download=shell)
-        with self.assertRaises(monitor.ThinPage):
-            monitor.probe(url, renderer=lambda _: "Loading", download=shell)
-        static = "<main>" + "Apex Developer Guide " * 20 + "</main>"
-        self.assertEqual(monitor.fingerprint(static),
-                         monitor.probe(url, renderer=self.fail, download=lambda _: static))
-
-    def test_monitor_host_validation(self):
-        self.assertTrue(monitor.official("https://help.salesforce.com/path"))
+    def test_official_host_validation(self):
+        self.assertTrue(official("https://help.salesforce.com/path"))
         for url in ("http://help.salesforce.com", "https://help.salesforce.com.example.org",
                     "https://help.salesforce.com@example.org"):
-            self.assertFalse(monitor.official(url))
+            self.assertFalse(official(url))
 
 
 if __name__ == "__main__":
