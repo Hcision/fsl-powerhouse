@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""Compare visible text on curated Salesforce documentation entry points."""
+"""Compare visible text on curated Salesforce documentation entry points.
+
+Pages that only render in a browser, such as Salesforce Help articles, are
+read through the optional sf-docs CLI when it is on PATH.
+"""
 import argparse
 import hashlib
 from html.parser import HTMLParser
 import json
 from pathlib import Path
 import re
+import shutil
+import subprocess
 import sys
 from urllib.error import URLError
 from urllib.parse import urlsplit
@@ -16,6 +22,10 @@ OFFICIAL_HOSTS = {
     "resources.docs.salesforce.com", "help.salesforce.com", "developer.salesforce.com", "architect.salesforce.com",
     "issues.salesforce.com", "trailhead.salesforce.com",
 }
+
+
+class ThinPage(ValueError):
+    """The response holds too little visible text to compare."""
 
 
 def official(url):
@@ -54,18 +64,30 @@ class VisibleText(HTMLParser):
             self.parts.append(data.strip())
 
 
-def fingerprint(raw):
-    parser = VisibleText()
-    parser.feed(raw)
-    normalized = re.sub(r"\s+", " ", " ".join(parser.parts)).strip()
+def text_fingerprint(text):
+    normalized = re.sub(r"\s+", " ", text).strip()
     if len(normalized) < 300:
-        raise ValueError("Too little visible text. Check the rendered page manually.")
+        raise ThinPage("Too little visible text. Check the rendered page manually.")
     return hashlib.sha256(normalized.encode()).hexdigest()
 
 
-def probe(url):
-    if not official(url):
-        raise ValueError("Expected an official HTTPS documentation URL")
+def fingerprint(raw):
+    parser = VisibleText()
+    parser.feed(raw)
+    return text_fingerprint(" ".join(parser.parts))
+
+
+def render(url, executable):
+    """Return the page as Markdown from sf-docs, which renders JavaScript pages."""
+    result = subprocess.run([executable, "--format", "md", "--no-cache", "fetch", url],
+                            shell=False, capture_output=True, text=True, timeout=90)
+    if result.returncode:
+        lines = result.stderr.strip().splitlines()
+        raise ValueError(lines[0][:350] if lines else f"sf-docs exited {result.returncode}")
+    return result.stdout
+
+
+def download(url):
     with build_opener(OfficialRedirects()).open(
         Request(url, headers={"User-Agent": "FSLPowerhouseDocsMonitor/0.2"}), timeout=12
     ) as response:
@@ -75,7 +97,20 @@ def probe(url):
         content = response.read(maximum + 1)
         if len(content) > maximum:
             raise ValueError("Document exceeds monitor size limit")
-        return fingerprint(content.decode(response.headers.get_content_charset() or "utf-8", errors="replace"))
+        return content.decode(response.headers.get_content_charset() or "utf-8", errors="replace")
+
+
+def probe(url, renderer=None, download=download):
+    """Fingerprint a page, using the renderer when the static response is a shell."""
+    if not official(url):
+        raise ValueError("Expected an official HTTPS documentation URL")
+    try:
+        return fingerprint(download(url))
+    except ThinPage:
+        if renderer is None:
+            raise ThinPage("Page renders in the browser only. Install sf-docs to monitor it.") from None
+    # The prefix keeps a rendered digest from matching a static one for the same page.
+    return "rendered:" + text_fingerprint(renderer(url))
 
 
 def main():
@@ -84,6 +119,11 @@ def main():
     parser.add_argument("--all", action="store_true", help="Check all catalog entries")
     args = parser.parse_args()
     previous = json.loads(args.state.read_text()) if args.state.exists() else {}
+    executable = shutil.which("sf-docs")
+    renderer = None
+    if executable:
+        executable = str(Path(executable).absolute())
+        renderer = lambda url: render(url, executable)  # noqa: E731
     current = previous.copy()
     errors = 0
     for source in json.loads((ROOT / "knowledge/sources.json").read_text()):
@@ -91,8 +131,8 @@ def main():
             continue
         key = source["id"]
         try:
-            digest = probe(source["url"])
-        except (OSError, URLError, ValueError) as exc:
+            digest = probe(source["url"], renderer)
+        except (OSError, URLError, ValueError, subprocess.SubprocessError) as exc:
             errors += 1
             print(f"REVIEW MANUALLY | {key} | {exc} | {source['url']}")
             continue

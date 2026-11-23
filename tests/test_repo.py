@@ -109,6 +109,20 @@ class RepoTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             monitor.fingerprint("<p>Unavailable</p>")
 
+    def test_probe_renders_pages_that_are_only_a_script_shell(self):
+        url = "https://help.salesforce.com/s/articleView?id=x"
+        shell = lambda _: "<body><p>Loading</p><script>app()</script></body>"  # noqa: E731
+        article = "Field Service release notes " * 20
+        digest = monitor.probe(url, renderer=lambda _: article, download=shell)
+        self.assertEqual("rendered:" + monitor.text_fingerprint(article), digest)
+        with self.assertRaisesRegex(monitor.ThinPage, "sf-docs"):
+            monitor.probe(url, download=shell)
+        with self.assertRaises(monitor.ThinPage):
+            monitor.probe(url, renderer=lambda _: "Loading", download=shell)
+        static = "<main>" + "Apex Developer Guide " * 20 + "</main>"
+        self.assertEqual(monitor.fingerprint(static),
+                         monitor.probe(url, renderer=self.fail, download=lambda _: static))
+
     def test_monitor_host_validation(self):
         self.assertTrue(monitor.official("https://help.salesforce.com/path"))
         for url in ("http://help.salesforce.com", "https://help.salesforce.com.example.org",

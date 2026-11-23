@@ -30,7 +30,7 @@ Try: “Use the FSL Powerhouse to review the scheduling flow in this repo. Deter
 | `knowledge/sources.json` | Curated official reference catalog |
 | `knowledge/research-protocol.md` | Documentation workflow and Field Service topic map |
 | `knowledge/release-baseline.md` | Initial release baseline and verified November Field Service changes |
-| `scripts/monitor_sources.py` | Optional manual monitoring for changes to selected official pages |
+| `scripts/monitor_sources.py` | Optional manual monitoring for changes to selected official pages. Salesforce Help articles render in the browser only, so monitoring them needs the `sf-docs` CLI on `PATH` |
 | `tests/` | Catalog, manifest, agent-reference and monitor tests |
 
 ## Live documentation lookup
