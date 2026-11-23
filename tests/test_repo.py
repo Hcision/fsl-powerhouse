@@ -96,9 +96,18 @@ class RepoTest(unittest.TestCase):
     def test_readme_counts(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8").lower()
         for label, items in (("specialists", self.agents), ("task-specific playbooks", self.skills)):
-            word = re.search(rf"(\w+) {label}", readme)
+            word = re.search(rf"([a-z]+) {label}", readme)
             self.assertIsNotNone(word, label)
             self.assertEqual(NUMBERS[word[1]], len(items), label)
+        counts = {"agents": len(self.agents), "skills": len(self.skills)}
+        for path in ("README.md", "assets/banner.svg"):
+            content = (ROOT / path).read_text(encoding="utf-8")
+            for label, expected in counts.items():
+                shown = {int(n) for n in re.findall(rf"(\d+) {label}\b", content)}
+                shown |= {int(n) for n in re.findall(rf"badge/{label}-(\d+)-", content)}
+                self.assertEqual({expected}, shown, f"{path}: {label}")
+        for name in list(self.agents) + list(self.skills):
+            self.assertIn(f"`{name}`", readme, f"README does not list {name}")
 
     def test_official_host_validation(self):
         self.assertTrue(official("https://help.salesforce.com/path"))
