@@ -1,11 +1,11 @@
 ---
 name: apex-engineering
-description: Apex, SOQL, async processing, integrations and automated tests. Use when the request or implementation touches these areas.
+description: Design, implement or review Apex code, including triggers, SOQL and DML bulkification, governor limits, Queueable, Batch, Schedulable and Platform Event processing, callouts and named credentials, sharing and CRUD/FLS, and Apex tests. Use when editing or reviewing .cls or .trigger files, debugging limit or row-lock errors, or choosing an async pattern.
 ---
 
 # Apex, SOQL, async processing, integrations and automated tests
 
-Read `../../knowledge/research-protocol.md` relative to this file. Select only the source catalog topics needed from apex, platform, architecture, delivery. Follow links to the specific official page and record the verification date, applicability and environment. Ask for missing decisive evidence when it blocks a safe implementation.
+Read `${CLAUDE_PLUGIN_ROOT}/knowledge/research-protocol.md`. From `${CLAUDE_PLUGIN_ROOT}/knowledge/sources.json`, select only the topics needed among apex, platform, architecture, delivery. Follow links to the specific official page and record the verification date, applicability and environment. Ask for missing decisive evidence when it blocks a safe implementation.
 
 1. Trace transaction boundaries, entry points, sharing and user permissions. Model query, DML, CPU, heap and callout budgets with realistic record counts.
 2. Review trigger bulkification, recursion and re-entry, collection use, query selectivity, error handling, locking and retry idempotency. Select asynchronous primitives using current documented semantics.

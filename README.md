@@ -4,18 +4,20 @@ A Claude Code plugin for source-grounded Salesforce delivery. Field Service is t
 
 ## Quick start
 
-Extract the repository. From the directory containing it, run:
+Install from GitHub in an active Claude Code session:
+
+```text
+/plugin marketplace add Hcision/fsl-powerhouse
+/plugin install fsl-powerhouse@fsl-powerhouse
+```
+
+To work on the plugin itself, clone the repository and load it in place from the directory containing it:
 
 ```sh
 claude --plugin-dir ./fsl-powerhouse
 ```
 
-Or register the local repository from an active Claude Code session using its full path:
-
-```text
-/plugin marketplace add /absolute/path/to/fsl-powerhouse
-/plugin install fsl-powerhouse@fsl-powerhouse
-```
+Reviewer and analyst agents are read-only. They report findings, and the main session applies any change.
 
 Try: “Use the FSL Powerhouse to review the scheduling flow in this repo. Determine which engine and policy it uses, verify the applicable Salesforce docs, and give me a test matrix.” For the maintenance package, give Claude the Jira IDs and use the ticket delivery and preventive maintenance skills. Jira and web access depend on your Claude Code environment.
 
@@ -24,12 +26,11 @@ Try: “Use the FSL Powerhouse to review the scheduling flow in this repo. Deter
 | Path | Purpose |
 | --- | --- |
 | `agents/` | Eleven specialists for architecture, development, Field Service, security, QA and releases |
-| `skills/` | Fifteen task-specific playbooks with evidence and validation requirements |
+| `skills/` | Fifteen task-specific playbooks with evidence and validation requirements. The scheduling and preventive maintenance skills carry a `reference.md` of API anchors read from official documentation |
 | `knowledge/sources.json` | Curated official reference catalog |
 | `knowledge/research-protocol.md` | Documentation workflow and Field Service topic map |
 | `knowledge/release-baseline.md` | Initial release baseline and verified November Field Service changes |
-| `scripts/monitor_sources.py` | Optional manual monitoring for changes to selected official pages |
-| `tests/` | Catalog, manifest, agent-reference and monitor tests |
+| `tests/` | Catalog, manifest and agent-reference tests |
 
 ## Live documentation lookup
 
@@ -37,9 +38,13 @@ The plugin searches Salesforce's official websites when you ask about Field Serv
 
 Try asking Claude: “Use live Salesforce documentation to explain how to test an Agentforce agent. Cite the current Testing Center guidance and check whether it applies to Agentforce for Field Service.”
 
-The importer and local search scripts from the earlier version are available for existing users as optional tools. Live mode requires no local document import, index or refresh schedule.
+Live mode requires no local document import, index or refresh schedule.
 
-Run repository validation with `python3 -m unittest discover -s tests -v`.
+### Salesforce Help articles
+
+Articles on help.salesforce.com render in the browser only, so a plain web fetch often returns an empty page. The optional third-party [`sf-docs` skill](https://github.com/Jaganpro/sf-skills/tree/main/skills/sf-docs) (MIT) reads them through a headless browser. Install it next to this plugin with `npx skills add Jaganpro/sf-skills --skill sf-docs`. Its scripts need Playwright and a Chromium download. When it is installed, the research protocol uses it for pages that come back empty. Without it, the agents report the page as unverified.
+
+Run repository validation with `python3 -m unittest discover -s tests -v` and `claude plugin validate . --strict`.
 
 ## Design references
 
@@ -53,6 +58,6 @@ Use the `salesforce-knowledge-grounding` skill to plan Lightning Knowledge artic
 
 Public Salesforce documentation is fetched live. Consulting your org’s private Knowledge articles requires an authorized org connection.
 
-## SkillSpector static scan
+## License
 
-From a clean checkout, run `skillspector scan . --no-llm --use-shipped-baseline --show-suppressed --fail-on-incomplete`. The checked-in baseline records two reviewed calls to the optional `sf-docs` CLI by exact fingerprint. Run without `--use-shipped-baseline` to see all raw findings. Review any new finding before changing the baseline.
+[MIT](LICENSE)

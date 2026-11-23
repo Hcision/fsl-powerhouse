@@ -3,6 +3,9 @@
   "owner": {
     "name": "FSL Powerhouse maintainers"
   },
+  "metadata": {
+    "description": "Salesforce and Field Service delivery agents and playbooks for Claude Code."
+  },
   "plugins": [
     {
       "name": "fsl-powerhouse",

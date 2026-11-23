@@ -1,5 +1,20 @@
 {
   "name": "fsl-powerhouse",
-  "version": "0.1.0",
-  "description": "Source-grounded Salesforce development and architecture with dedicated Field Service workflows."
+  "version": "0.2.0",
+  "description": "Source-grounded Salesforce development and architecture with dedicated Field Service workflows.",
+  "author": {
+    "name": "FSL Powerhouse maintainers"
+  },
+  "homepage": "https://github.com/Hcision/fsl-powerhouse",
+  "repository": "https://github.com/Hcision/fsl-powerhouse",
+  "license": "MIT",
+  "keywords": [
+    "salesforce",
+    "field-service",
+    "fsl",
+    "apex",
+    "lwc",
+    "flow",
+    "agentforce"
+  ]
 }
