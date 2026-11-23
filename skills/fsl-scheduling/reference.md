@@ -33,6 +33,16 @@ Anchors read from the Field Service Developer Guide on 2026-11-23. Enhanced Sche
 - **Optimization.** `OAAS` methods return the ID of an optimization request record to poll. `optimize` runs in-day optimization when the policy's in-day flag is set. `maxOptRuntime` defaults to 30 seconds and excludes queue time. Without ESO, calling `OAAS` from a batch `start` or `execute` method or from a future method throws an exception.
 - **Managed triggers.** The package ships triggers on Service Appointment, Assigned Resource, Service Resource, Service Territory Member, Resource Absence, Work Order and other scheduling objects. A pinned appointment rejects changes to its scheduled times. Custom automation on these objects shares their transaction, so test it with the package logic active.
 
+## Policy and engine rules
+
+- A scheduling policy needs at least one database work rule to narrow candidates during Appointment Booking and Get Candidates. Salesforce recommends filtering to about 20 candidates.
+- Match Territory keeps appointments with primary or relocation members of the appointment's territory.
+- With Enhanced Scheduling and Optimization enabled per territory, every appointment and resource territory in one optimization request, bulk schedule or batch update must use the same engine. Appointments in enabled territories can go only to resources whose primary territory is also enabled.
+- Complex work: a chain that spans territories needs all of them in the optimization request. Without Enhanced Scheduling and Optimization, Same Resource dependencies need a single territory membership per resource. Pinned appointments are not counted in a request.
+- Scheduled jobs count against the 100 concurrently scheduled Apex jobs. A job recurring every 15 minutes counts as four.
+- Resource schedule optimization is not supported for capacity-based resources.
+- The standard action `scheduleServiceAppointment` (API 62.0 and later) schedules one appointment under a policy without Apex. Appointment bundling has its own REST APIs.
+
 ## Documentation inconsistencies seen
 
 - `getAppointmentInsights`: the signature lists the policy ID first, while the parameter list and example pass the appointment ID first. Confirm the order in the org.
@@ -45,4 +55,8 @@ Anchors read from the Field Service Developer Guide on 2026-11-23. Enhanced Sche
 - [AppointmentBookingService](https://developer.salesforce.com/docs/service/field-service-dev/guide/apex-class-fsl-appointmentbookingservice.html)
 - [ScheduleService](https://developer.salesforce.com/docs/service/field-service-dev/guide/apex-class-fsl-scheduleservice.html)
 - [OAAS](https://developer.salesforce.com/docs/service/field-service-dev/guide/apex-class-fsl-oaas.html)
+- [Create and Manage Work Rules](https://help.salesforce.com/s/articleView?language=en_US&id=sf.pfs_optimization_theory_work_rules.htm&type=5)
+- [Limitations for Enhanced Optimization per Territory](https://help.salesforce.com/s/articleView?id=pfs_enhanced_optimization_per_territory_limitations.htm&language=en_US&type=5)
+- [Considerations for Complex Work](https://help.salesforce.com/s/articleView?id=pfs_complex_work_considerations.htm&language=en_US&type=0)
+- [Limits for Enhanced Scheduling and Optimization](https://help.salesforce.com/s/articleView?language=en_US&id=service.pfs_enhanced_available_limits.htm&type=5)
 - [Managed package triggers](https://developer.salesforce.com/docs/service/field-service-dev/guide/fsl-dev-custom-triggers.html)

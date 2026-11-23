@@ -12,4 +12,6 @@ Read `${CLAUDE_PLUGIN_ROOT}/knowledge/research-protocol.md`. From `${CLAUDE_PLUG
 3. Identify which behavior comes from Salesforce core, the Field Service managed package, the scheduling engine, the mobile app, or custom automation. Verify availability and distinguish Field Service scheduling from Salesforce Scheduler.
 4. Compare native configuration, Flow and custom implementation. Record decision triggers, package and licensing assumptions, migration of existing records, monitoring and fallback.
 
+Before searching, read `${CLAUDE_SKILL_DIR}/reference.md` for product layers, prerequisites and documented limits. Re-verify any anchor that a decision depends on.
+
 Return decisions and findings with source URLs, implementation evidence, checks performed and unresolved items.

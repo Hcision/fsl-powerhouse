@@ -60,7 +60,7 @@
     "url": "https://help.salesforce.com/s/articleView?language=en_US&type=5&id=service.fs_manage_scheduling_parent.htm"
   },
   {
-    "topic": "fsl-scheduling",
+    "topic": "fsl-customer",
     "id": "fsl-customer",
     "title": "Appointment Assistant and self-service scheduling",
     "url": "https://help.salesforce.com/s/articleView?id=sf.mfs_appointment_assistant_sss_parent.htm&language=en_US&type=5"
@@ -238,5 +238,335 @@
     "id": "agentforce-data-library",
     "title": "Agentforce Data Library",
     "url": "https://help.salesforce.com/s/articleView?id=ai.data_library_parent.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-core",
+    "id": "fsl-limits",
+    "title": "Field Service Limits and Limitations",
+    "url": "https://help.salesforce.com/s/articleView?id=service.fs_limits.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-core",
+    "id": "fsl-objects",
+    "title": "Field Service Objects",
+    "url": "https://help.salesforce.com/s/articleView?id=fs_standard_objects.htm&language=en_US"
+  },
+  {
+    "topic": "fsl-core",
+    "id": "fsl-glossary",
+    "title": "Field Service Key Concepts and Glossary",
+    "url": "https://help.salesforce.com/s/articleView?id=service.fs_key_concepts.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-core",
+    "id": "fsl-setup-basics",
+    "title": "Set Up Field Service Basics",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=sf.fs_set_up.htm&type=5"
+  },
+  {
+    "topic": "fsl-core",
+    "id": "fsl-managed-package",
+    "title": "Install the Field Service Managed Package",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=pfs_intro.htm"
+  },
+  {
+    "topic": "fsl-workforce",
+    "id": "fsl-territory-guidelines",
+    "title": "Guidelines for Creating Service Territories",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=fs_territory_guidelines.htm&type=0"
+  },
+  {
+    "topic": "fsl-workforce",
+    "id": "fsl-resources",
+    "title": "Create Service Resources",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=sf.fs_create_resources.htm&type=5"
+  },
+  {
+    "topic": "fsl-workforce",
+    "id": "fsl-shifts",
+    "title": "Guidelines for Shift Availability",
+    "url": "https://help.salesforce.com/s/articleView?id=fs_shifts_guidelines.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-workforce",
+    "id": "fsl-capacity",
+    "title": "Define Capacity-Based Resources",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=service.fs_define_resource_capacity.htm&type=5"
+  },
+  {
+    "topic": "fsl-workforce",
+    "id": "fsl-contractors",
+    "title": "Guidelines for Setting Up Contractors",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=service.fs_setting_up_contractors.htm&type=5"
+  },
+  {
+    "topic": "fsl-workforce",
+    "id": "fsl-work-capacity",
+    "title": "Set Up Work Capacity",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=sf.fs_work_capacity_setup.htm&type=5"
+  },
+  {
+    "topic": "fsl-scheduling",
+    "id": "fsl-work-rules",
+    "title": "Create and Manage Work Rules",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=sf.pfs_optimization_theory_work_rules.htm&type=5"
+  },
+  {
+    "topic": "fsl-scheduling",
+    "id": "fsl-eso-limits",
+    "title": "Limits for Enhanced Scheduling and Optimization",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=service.pfs_enhanced_available_limits.htm&type=5"
+  },
+  {
+    "topic": "fsl-scheduling",
+    "id": "fsl-eso-territory",
+    "title": "Limitations for Enhanced Optimization per Territory",
+    "url": "https://help.salesforce.com/s/articleView?id=pfs_enhanced_optimization_per_territory_limitations.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-scheduling",
+    "id": "fsl-complex-work",
+    "title": "Considerations for Complex Work",
+    "url": "https://help.salesforce.com/s/articleView?id=pfs_complex_work_considerations.htm&language=en_US&type=0"
+  },
+  {
+    "topic": "fsl-scheduling",
+    "id": "fsl-scheduled-jobs",
+    "title": "Manage Scheduled Jobs",
+    "url": "https://help.salesforce.com/s/articleView?id=service.pfs_set_up_jobs_enhanced.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-scheduling",
+    "id": "fsl-apex-booking",
+    "title": "AppointmentBookingService class",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/apex-class-fsl-appointmentbookingservice.html"
+  },
+  {
+    "topic": "fsl-scheduling",
+    "id": "fsl-apex-schedule",
+    "title": "ScheduleService class",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/apex-class-fsl-scheduleservice.html"
+  },
+  {
+    "topic": "fsl-scheduling",
+    "id": "fsl-apex-oaas",
+    "title": "OAAS optimization class",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/apex-class-fsl-oaas.html"
+  },
+  {
+    "topic": "fsl-dispatch",
+    "id": "fsl-gantt-actions",
+    "title": "Dispatcher Console Custom Actions",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/fsl-dev-code-samples-dispatcher.html"
+  },
+  {
+    "topic": "fsl-dispatch",
+    "id": "fsl-appointment-lists",
+    "title": "Create Service Appointment Lists in the Dispatcher Console",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/fsl-dev-code-samples-sal.html"
+  },
+  {
+    "topic": "fsl-dispatch",
+    "id": "fsl-custom-permissions",
+    "title": "Set Custom Permissions for Field Service",
+    "url": "https://help.salesforce.com/s/articleView?id=sf.pfs_custom_permissions.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-dispatch",
+    "id": "fsl-utilization",
+    "title": "View Resource Utilization",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=service.pfs_view_availability.htm&type=5"
+  },
+  {
+    "topic": "fsl-dispatch",
+    "id": "fsl-emergency",
+    "title": "Schedule Emergency Appointments",
+    "url": "https://help.salesforce.com/s/articleView?id=sf.pfs_emergency.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-inventory",
+    "id": "fsl-inventory-setup",
+    "title": "Set Up Your Field Service Inventory",
+    "url": "https://help.salesforce.com/s/articleView?id=service.fs_set_up_parts.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-inventory",
+    "id": "fsl-inventory-fields",
+    "title": "Product Item and Inventory Fields",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=fs_parts_fields.htm&type=0"
+  },
+  {
+    "topic": "fsl-inventory",
+    "id": "fsl-product-transfers",
+    "title": "Transfer Inventory",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=sf.fs_create_product_transfers.htm&type=5"
+  },
+  {
+    "topic": "fsl-inventory",
+    "id": "fsl-products-consumed",
+    "title": "Track Inventory Consumption",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=sf.fs_create_products_consumed.htm&type=5"
+  },
+  {
+    "topic": "fsl-inventory",
+    "id": "fsl-serialized",
+    "title": "Manage Serialized Inventory V2",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=service.fs_learn_serialized_products.htm&type=5"
+  },
+  {
+    "topic": "fsl-inventory",
+    "id": "fsl-returns",
+    "title": "Guidelines for Tracking Customer Returns",
+    "url": "https://help.salesforce.com/s/articleView?id=fs_return_order_settings.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-customer",
+    "id": "fsl-aa-setup",
+    "title": "Set Up Appointment Assistant",
+    "url": "https://help.salesforce.com/s/articleView?id=sf.mfs_appointment_assistant_parent.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-customer",
+    "id": "fsl-aa-location",
+    "title": "Set Up Appointment Assistant Real-Time Location",
+    "url": "https://help.salesforce.com/s/articleView?id=mfs_appointment_assistant_set_up_parent.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-customer",
+    "id": "fsl-aa-booking",
+    "title": "Self-Service Scheduling for New Appointments",
+    "url": "https://help.salesforce.com/s/articleView?id=service.mfs_appointment_assistant_sss_new_appointments.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-security",
+    "id": "fsl-psl",
+    "title": "Field Service Permission Set Licenses",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=service.fs_perm_set_licenses.htm&type=5"
+  },
+  {
+    "topic": "fsl-security",
+    "id": "fsl-assign-permissions",
+    "title": "Assign Field Service Permissions",
+    "url": "https://help.salesforce.com/s/articleView?id=pfs_set_profiles_perms.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-security",
+    "id": "fsl-sharing",
+    "title": "Limit Access to Field Service Records",
+    "url": "https://help.salesforce.com/s/articleView?id=sf.fs_sharing.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-security",
+    "id": "fsl-contractor-access",
+    "title": "Give Contractors Access to the Mobile App",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=service.fs_contractor_access.htm&type=5"
+  },
+  {
+    "topic": "fsl-apis",
+    "id": "fsl-rest",
+    "title": "Field Service API (REST)",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/fsl-dev-rest.html"
+  },
+  {
+    "topic": "fsl-apis",
+    "id": "fsl-actions",
+    "title": "Field Service Invocable Actions",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/fsl-actions-parent.html"
+  },
+  {
+    "topic": "fsl-apis",
+    "id": "fsl-metadata",
+    "title": "Field Service Metadata API",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/fsl-dev-metadata.html"
+  },
+  {
+    "topic": "fsl-apis",
+    "id": "fsl-apex-namespace",
+    "title": "FSL Apex Namespace",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/apex-namespace-fsl.html"
+  },
+  {
+    "topic": "fsl-apis",
+    "id": "fsl-managed-triggers",
+    "title": "Field Service managed package triggers",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/fsl-dev-custom-triggers.html"
+  },
+  {
+    "topic": "fsl-apis",
+    "id": "fsl-code-samples",
+    "title": "Field Service Code Examples",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/fsl-dev-code-samples.html"
+  },
+  {
+    "topic": "fsl-apis",
+    "id": "fsl-data-objects",
+    "title": "Field Service Data Objects and diagrams",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/fsl-dev-soap.html"
+  },
+  {
+    "topic": "fsl-analytics",
+    "id": "fsl-report-types",
+    "title": "Create Report Types for Field Service",
+    "url": "https://help.salesforce.com/apex/HTViewHelpDoc?id=fs_create_reports.htm"
+  },
+  {
+    "topic": "fsl-analytics",
+    "id": "fsl-optimization-insights",
+    "title": "Field Service Optimization Insights",
+    "url": "https://help.salesforce.com/s/articleView?id=pfs_monitor_optimization_insights.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-analytics",
+    "id": "fsl-eso-dashboard",
+    "title": "Enhanced Scheduling and Optimization Dashboard",
+    "url": "https://help.salesforce.com/s/articleView?id=service.fs_es_insights_consider.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-analytics",
+    "id": "fsl-analytics-app",
+    "title": "Field Service Analytics app",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&id=sf.bi_app_field_service_wave.htm&type=5"
+  },
+  {
+    "topic": "fsl-analytics",
+    "id": "fsl-intelligence",
+    "title": "Field Service Intelligence",
+    "url": "https://help.salesforce.com/s/articleView?id=service.ifs_intro.htm&language=en_US&type=5"
+  },
+  {
+    "topic": "fsl-mobile",
+    "id": "fsl-mobile-help",
+    "title": "Field Service Mobile App",
+    "url": "https://help.salesforce.com/s/articleView?id=service.mfs_overview.htm&language=en_US"
+  },
+  {
+    "topic": "fsl-mobile",
+    "id": "fsl-mobile-lwc",
+    "title": "Lightning Web Components in the Field Service Mobile App",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/sfs-gs.html"
+  },
+  {
+    "topic": "fsl-mobile",
+    "id": "fsl-mobile-considerations",
+    "title": "Considerations for LWC Offline",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/sfs-gs-lwc-considerations.html"
+  },
+  {
+    "topic": "fsl-mobile",
+    "id": "fsl-mobile-deep-linking",
+    "title": "Deep Linking for the Field Service Mobile App",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/fsl-dev-mobile-deep-linking.html"
+  },
+  {
+    "topic": "fsl-mobile",
+    "id": "fsl-document-builder-lwc",
+    "title": "LWCs for Service Documents",
+    "url": "https://developer.salesforce.com/docs/service/field-service-dev/guide/fsl-dev-mobile-document-builder.html"
+  },
+  {
+    "topic": "fsl-mobile",
+    "id": "mobile-offline-guide",
+    "title": "Mobile and Offline Developer Guide",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.mobile_offline.meta/mobile_offline/intro.htm"
   }
 ]

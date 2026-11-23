@@ -33,10 +33,13 @@ A work rule points to a plan through `ParentMaintenancePlan` (API 51.0 and later
 - **One batch at a time.** A plan with `WorkOrderGenerationStatus` InProgress cannot start another batch. Custom jobs that trigger generation need to check the status and handle Unsuccessful.
 - **Generation methods are fixed once records exist.** Changing them means deleting and regenerating the work orders, or recreating the plan.
 - **Plan-level frequency is legacy.** The object reference for API 63.0 states that `Frequency` and `FrequencyType` began phased retirement in Summer '22 and directs migration to maintenance work rules. Treat any code that reads or writes these fields as a defect lead and confirm their state in the target release.
-- **Batch volume.** The pages read state no record ceiling per batch. Estimate assets × rules × occurrences inside the generation timeframe and measure it in a sandbox.
+- **Batch volume.** One generation creates at most 2,600 work orders per maintenance plan, and a plan holds at most 25,000 maintenance work rules. Estimate assets × rules × occurrences inside the generation timeframe, and shorten the timeframe or split the plan when the estimate approaches the limit.
+- **Generation from code.** The standard action `generateWorkOrders` takes the maintenance plan ID as `recordId` and returns 201 on success.
 
 ## Sources
 
 - [MaintenancePlan](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_maintenanceplan.htm)
 - [MaintenancePlan, API 63.0](https://developer.salesforce.com/docs/atlas.en-us.254.0.object_reference.meta/object_reference/sforce_api_objects_maintenanceplan.htm)
+- [Field Service Limits and Limitations](https://help.salesforce.com/s/articleView?id=service.fs_limits.htm&language=en_US&type=5)
+- [Generate Work Orders with Apex](https://developer.salesforce.com/docs/service/field-service-dev/guide/fsl-dev-code-samples-wo.html)
 - [MaintenanceWorkRule](https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_maintenanceworkrule.htm)
