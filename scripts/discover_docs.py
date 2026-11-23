@@ -70,20 +70,25 @@ def main():
     parser.add_argument("--depth", type=int, default=2)
     parser.add_argument("--output", type=Path, default=ROOT / ".cache/discovery.json")
     args = parser.parse_args()
-    if shutil.which("sf-docs") is None:
+    executable = shutil.which("sf-docs")
+    if executable is None:
         parser.error("Install sf-docs and add it to PATH before importing.")
+    executable = str(Path(executable).absolute())
     if args.limit < 1 or args.depth < 0:
         parser.error("Use a positive limit and nonnegative depth")
     catalog = json.loads((ROOT / "knowledge/sources.json").read_text())
     urls = args.seed or [row["url"] for row in catalog if row["topic"].startswith("fsl-")]
     for target in args.toc:
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*(?:/[A-Za-z0-9][A-Za-z0-9_.-]*)*/?", target):
+            parser.error(f"Invalid developer documentation guide ID: {target!r}")
         root = "https://developer.salesforce.com/docs/"
         if "/" not in target:
             root += f"atlas.en-us.{target}.meta/{target}/"
         else:
             root += target.strip("/") + "/"
         try:
-            result = subprocess.run(["sf-docs", "--format", "json", "toc", target, "--depth", "3"],
+            result = subprocess.run([executable, "--format", "json", "toc", target, "--depth", "3"],
+                                    shell=False,
                                     capture_output=True, text=True, check=True, timeout=120)
             urls.extend(url for entry in json.loads(result.stdout)
                         if (url := canonical(root, entry.get("href") or "#")))
@@ -100,10 +105,10 @@ def main():
         metadata = corpus / (key + ".json")
         if not args.refresh and markdown.is_file() and metadata.is_file():
             return markdown.read_text(encoding="utf-8")
-        command = ["sf-docs", "--format", "md"]
+        command = [executable, "--format", "md"]
         if args.refresh:
             command.append("--no-cache")
-        result = subprocess.run([*command, "fetch", url], capture_output=True, text=True, timeout=90)
+        result = subprocess.run([*command, "fetch", url], shell=False, capture_output=True, text=True, timeout=90)
         if result.returncode:
             lines = result.stderr.strip().splitlines()
             raise ValueError(lines[0][:350] if lines else f"sf-docs exited {result.returncode}")

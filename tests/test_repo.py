@@ -1,13 +1,11 @@
-import importlib.util
 import json
 from pathlib import Path
 import re
 import unittest
 
+from scripts import monitor_sources as monitor
+
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location("monitor", ROOT / "scripts/monitor_sources.py")
-monitor = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(monitor)
 
 
 class RepoTest(unittest.TestCase):
