@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-label="FSL Powerhouse: source-grounded Salesforce and Field Service delivery for Claude Code">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071a33"/>
+      <stop offset="0.55" stop-color="#0b3a6b"/>
+      <stop offset="1" stop-color="#0a5a8f"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#7dd3fc"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
+    </pattern>
+    <clipPath id="round"><rect width="1280" height="360" rx="24"/></clipPath>
+  </defs>
+  <g clip-path="url(#round)">
+    <rect width="1280" height="360" fill="url(#bg)"/>
+    <rect width="1280" height="360" fill="url(#grid)"/>
+    <circle cx="1130" cy="20" r="220" fill="#38bdf8" fill-opacity="0.10"/>
+    <circle cx="60" cy="380" r="180" fill="#f59e0b" fill-opacity="0.08"/>
+
+    <!-- schedule board -->
+    <g transform="translate(770 62)">
+      <rect width="446" height="236" rx="16" fill="#ffffff" fill-opacity="0.07" stroke="#ffffff" stroke-opacity="0.16"/>
+      <g stroke="#ffffff" stroke-opacity="0.10">
+        <path d="M122 20V216M203 20V216M284 20V216M365 20V216"/>
+      </g>
+      <line x1="244" y1="14" x2="244" y2="222" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 5"/>
+      <circle cx="244" cy="14" r="5" fill="#f59e0b"/>
+      <g>
+        <circle cx="34" cy="48" r="11" fill="#7dd3fc"/>
+        <rect x="56" y="43" width="42" height="10" rx="5" fill="#ffffff" fill-opacity="0.35"/>
+        <rect x="122" y="36" width="96" height="24" rx="8" fill="#38bdf8"/>
+        <rect x="232" y="36" width="70" height="24" rx="8" fill="#22c55e"/>
+        <rect x="330" y="36" width="88" height="24" rx="8" fill="#38bdf8" fill-opacity="0.55"/>
+      </g>
+      <g transform="translate(0 46)">
+        <circle cx="34" cy="48" r="11" fill="#fbbf24"/>
+        <rect x="56" y="43" width="34" height="10" rx="5" fill="#ffffff" fill-opacity="0.35"/>
+        <rect x="150" y="36" width="64" height="24" rx="8" fill="#f59e0b"/>
+        <rect x="228" y="36" width="120" height="24" rx="8" fill="#38bdf8"/>
+      </g>
+      <g transform="translate(0 92)">
+        <circle cx="34" cy="48" r="11" fill="#86efac"/>
+        <rect x="56" y="43" width="46" height="10" rx="5" fill="#ffffff" fill-opacity="0.35"/>
+        <rect x="122" y="36" width="52" height="24" rx="8" fill="#22c55e"/>
+        <rect x="188" y="36" width="84" height="24" rx="8" fill="#38bdf8" fill-opacity="0.55"/>
+        <rect x="300" y="36" width="104" height="24" rx="8" fill="#a78bfa"/>
+      </g>
+      <g transform="translate(0 138)">
+        <circle cx="34" cy="48" r="11" fill="#c4b5fd"/>
+        <rect x="56" y="43" width="38" height="10" rx="5" fill="#ffffff" fill-opacity="0.35"/>
+        <rect x="170" y="36" width="110" height="24" rx="8" fill="#38bdf8"/>
+        <rect x="294" y="36" width="60" height="24" rx="8" fill="#f59e0b" fill-opacity="0.7"/>
+      </g>
+    </g>
+
+    <!-- mark -->
+    <g transform="translate(72 70)">
+      <rect width="64" height="64" rx="16" fill="#38bdf8"/>
+      <path d="M36 10 18 36h12l-4 18 20-28H33z" fill="#071a33"/>
+    </g>
+
+    <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif">
+      <text x="72" y="196" font-size="68" font-weight="800" fill="url(#title)" letter-spacing="-1.5">FSL Powerhouse</text>
+      <text x="74" y="238" font-size="23" fill="#dbeafe">Source-grounded Salesforce and Field Service delivery</text>
+      <text x="74" y="268" font-size="23" fill="#dbeafe">for Claude Code</text>
+      <g font-size="15" font-weight="600" fill="#e0f2fe">
+        <rect x="72" y="292" width="104" height="30" rx="15" fill="#ffffff" fill-opacity="0.12"/>
+        <text x="124" y="312" text-anchor="middle">11 agents</text>
+        <rect x="186" y="292" width="96" height="30" rx="15" fill="#ffffff" fill-opacity="0.12"/>
+        <text x="234" y="312" text-anchor="middle">15 skills</text>
+        <rect x="292" y="292" width="170" height="30" rx="15" fill="#ffffff" fill-opacity="0.12"/>
+        <text x="377" y="312" text-anchor="middle">live official docs</text>
+      </g>
+    </g>
+  </g>
+</svg>
