@@ -52,3 +52,7 @@ Claude Code format references: [plugins](https://code.claude.com/docs/en/plugins
 Use the `salesforce-knowledge-grounding` skill to plan Lightning Knowledge article publishing, Agentforce Data Library setup and persona-based retrieval tests. For example, ask it to design a missing-part procedure for technicians and validate when the agent should answer or escalate.
 
 Public Salesforce documentation is fetched live. Consulting your org’s private Knowledge articles requires an authorized org connection.
+
+## SkillSpector static scan
+
+From a clean checkout, run `skillspector scan . --no-llm --use-shipped-baseline --show-suppressed --fail-on-incomplete`. The checked-in baseline records two reviewed calls to the optional `sf-docs` CLI by exact fingerprint. Run without `--use-shipped-baseline` to see all raw findings. Review any new finding before changing the baseline.
