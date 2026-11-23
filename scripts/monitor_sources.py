@@ -67,7 +67,7 @@ def probe(url):
     if not official(url):
         raise ValueError("Expected an official HTTPS documentation URL")
     with build_opener(OfficialRedirects()).open(
-        Request(url, headers={"User-Agent": "SalesforceBrainDocsMonitor/0.1"}), timeout=12
+        Request(url, headers={"User-Agent": "FSLPowerhouseDocsMonitor/0.2"}), timeout=12
     ) as response:
         if response.headers.get_content_type() != "text/html":
             raise ValueError("Unexpected response type")
@@ -87,7 +87,7 @@ def main():
     current = previous.copy()
     errors = 0
     for source in json.loads((ROOT / "knowledge/sources.json").read_text()):
-        if not args.all and not source["monitor"]:
+        if not args.all and not source.get("monitor"):
             continue
         key = source["id"]
         try:

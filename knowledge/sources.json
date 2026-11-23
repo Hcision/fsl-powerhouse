@@ -10,7 +10,7 @@
     "topic": "release",
     "id": "winter-27",
     "title": "Winter ’27 pinned baseline",
-    "url": "https://help.salesforce.com/s/articleView?language=en_US&type=5&id=release-notes.salesforce_release_notes.htm&release=249",
+    "url": "https://help.salesforce.com/s/articleView?language=en_US&type=5&id=release-notes.salesforce_release_notes.htm&release=264",
     "monitor": false
   },
   {
@@ -45,7 +45,7 @@
     "topic": "fsl-core",
     "id": "fsl-dev",
     "title": "Field Service Developer Guide and FSL Apex/API entry point",
-    "url": "https://developer.salesforce.com/docs/atlas.en-us.field_service_dev.meta/fsl_dev_tooling.htm",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.field_service_dev.meta/field_service_dev/fsl_dev_introduction.htm",
     "monitor": true
   },
   {
@@ -72,7 +72,7 @@
   {
     "topic": "fsl-scheduling",
     "id": "fsl-customer",
-    "title": "Field Service customer engagement and booking release notes",
+    "title": "Appointment Assistant and self-service scheduling",
     "url": "https://help.salesforce.com/s/articleView?id=sf.mfs_appointment_assistant_sss_parent.htm&language=en_US&type=5",
     "monitor": false
   },
@@ -269,7 +269,7 @@
     "topic": "knowledge-grounding",
     "id": "lightning-knowledge-trailhead",
     "title": "Enhance Agentforce Service with Lightning Knowledge",
-    "url": "https://trailhead.salesforce.com/fr/content/learn/trails/enhance-service-cloud-with-lightning-knowledge",
+    "url": "https://trailhead.salesforce.com/content/learn/trails/enhance-service-cloud-with-lightning-knowledge",
     "monitor": false
   },
   {

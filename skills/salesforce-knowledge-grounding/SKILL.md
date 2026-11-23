@@ -1,11 +1,11 @@
 ---
 name: salesforce-knowledge-grounding
-description: Design and test Lightning Knowledge and Agentforce Data Library grounding for Salesforce Service and Field Service procedures.
+description: Design and test Lightning Knowledge and Agentforce Data Library grounding for Salesforce Service and Field Service procedures. Use when an Agentforce agent must answer from Knowledge articles, when planning article publishing or a Data Library, or when testing retrieval per persona.
 ---
 
 # Lightning Knowledge grounding
 
-Read ../../knowledge/research-protocol.md before verifying product behavior. Use the knowledge-grounding entries in ../../knowledge/sources.json as starting points for live documentation. If a PDF or Help page is unreadable, find a relevant official HTML article and identify any remaining evidence gap.
+Read `${CLAUDE_PLUGIN_ROOT}/knowledge/research-protocol.md` before verifying product behavior. Use the knowledge-grounding entries in `${CLAUDE_PLUGIN_ROOT}/knowledge/sources.json` as starting points for live documentation. If a PDF or Help page is unreadable, find a relevant official HTML article and identify any remaining evidence gap.
 
 1. Confirm agent type, channel, org prerequisites and intended audience. Identify the approved article owner, language, publication status and visibility. Check the current Salesforce guidance for how source selection and runtime access apply to this deployment.
 2. Draft or review articles with a clear question, applicability, step-by-step procedure, escalation conditions and ownership. Ground organization-specific answers in authorized, approved articles. Use official product documentation for setup, support and platform behavior.

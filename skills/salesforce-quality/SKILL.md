@@ -1,11 +1,11 @@
 ---
 name: salesforce-quality
-description: Implementation audit, Salesforce Code Analyzer, regression and delivery. Use when the request or implementation touches these areas.
+description: Audit a Salesforce implementation before merge or release, including acceptance-criteria traceability, Apex, Jest and Flow test runs, Salesforce Code Analyzer, regression scope and 2GP packaging readiness. Use for code review, pre-deployment checks or when asked whether a change is ready to ship.
 ---
 
 # Implementation audit, Salesforce Code Analyzer, regression and delivery
 
-Read `../../knowledge/research-protocol.md` relative to this file. Select only the source catalog topics needed from delivery, architecture, release. Follow links to the specific official page and record the verification date, applicability and environment. Ask for missing decisive evidence when it blocks a safe implementation.
+Read `${CLAUDE_PLUGIN_ROOT}/knowledge/research-protocol.md`. From `${CLAUDE_PLUGIN_ROOT}/knowledge/sources.json`, select only the topics needed among delivery, architecture, release. Follow links to the specific official page and record the verification date, applicability and environment. Ask for missing decisive evidence when it blocks a safe implementation.
 
 1. Read the work item and acceptance criteria, inspect the repo and record baseline test status. Trace each acceptance criterion to implementation and test evidence.
 2. Review design, newest applicable official guidance, security, performance, rollback and behavior through normal UI/API paths. Record severity and location for each confirmed finding.

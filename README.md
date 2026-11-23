@@ -4,18 +4,20 @@ A Claude Code plugin for source-grounded Salesforce delivery. Field Service is t
 
 ## Quick start
 
-Extract the repository. From the directory containing it, run:
+Install from GitHub in an active Claude Code session:
+
+```text
+/plugin marketplace add Hcision/fsl-powerhouse
+/plugin install fsl-powerhouse@fsl-powerhouse
+```
+
+To work on the plugin itself, clone the repository and load it in place from the directory containing it:
 
 ```sh
 claude --plugin-dir ./fsl-powerhouse
 ```
 
-Or register the local repository from an active Claude Code session using its full path:
-
-```text
-/plugin marketplace add /absolute/path/to/fsl-powerhouse
-/plugin install fsl-powerhouse@fsl-powerhouse
-```
+Reviewer and analyst agents are read-only. They report findings, and the main session applies any change.
 
 Try: “Use the FSL Powerhouse to review the scheduling flow in this repo. Determine which engine and policy it uses, verify the applicable Salesforce docs, and give me a test matrix.” For the maintenance package, give Claude the Jira IDs and use the ticket delivery and preventive maintenance skills. Jira and web access depend on your Claude Code environment.
 
@@ -39,7 +41,7 @@ Try asking Claude: “Use live Salesforce documentation to explain how to test a
 
 The importer and local search scripts from the earlier version are available for existing users as optional tools. Live mode requires no local document import, index or refresh schedule.
 
-Run repository validation with `python3 -m unittest discover -s tests -v`.
+Run repository validation with `python3 -m unittest discover -s tests -v` and `claude plugin validate . --strict`.
 
 ## Design references
 

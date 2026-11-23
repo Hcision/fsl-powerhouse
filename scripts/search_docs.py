@@ -14,8 +14,11 @@ TOKEN = re.compile(r"[A-Za-z0-9_]+")
 def sections(markdown):
     heading = "Overview"
     lines = []
+    fenced = False
     for line in markdown.splitlines():
-        if re.match(r"^#{1,6} ", line):
+        if line.lstrip().startswith(("```", "~~~")):
+            fenced = not fenced
+        if not fenced and re.match(r"^#{1,6} ", line):
             if lines:
                 yield heading, "\n".join(lines).strip()
             heading, lines = line.lstrip("# ").strip(), []
@@ -76,6 +79,8 @@ def main():
             for heading, url, snippet in matches:
                 excerpt = " ".join(snippet.split())[:750]
                 print(f"{heading[:140]}\n{url}\n{excerpt}\n")
+        if not args.index and not args.query:
+            parser.error("Pass a query, --index, or both.")
 
 
 if __name__ == "__main__":

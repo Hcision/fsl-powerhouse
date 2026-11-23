@@ -1,11 +1,11 @@
 ---
 name: flow-configuration
-description: Flows, declarative configuration and automation governance. Use when the request or implementation touches these areas.
+description: Design or review Flows and declarative configuration, including record-triggered, screen, scheduled and autolaunched flows, subflows, fault paths, order of execution, validation rules, custom metadata, permission sets and approvals. Use when touching .flow-meta.xml or other declarative metadata, or deciding between Flow and Apex.
 ---
 
 # Flows, declarative configuration and automation governance
 
-Read `../../knowledge/research-protocol.md` relative to this file. Select only the source catalog topics needed from flow, architecture, release. Follow links to the specific official page and record the verification date, applicability and environment. Ask for missing decisive evidence when it blocks a safe implementation.
+Read `${CLAUDE_PLUGIN_ROOT}/knowledge/research-protocol.md`. From `${CLAUDE_PLUGIN_ROOT}/knowledge/sources.json`, select only the topics needed among flow, architecture, release. Follow links to the specific official page and record the verification date, applicability and environment. Ask for missing decisive evidence when it blocks a safe implementation.
 
 1. Inventory other automations for the same object and map order, entry criteria, run context, async paths and recursion. Use the decision guide before choosing Flow, Apex or a hybrid.
 2. Audit collection operations, loops, subflows, fault paths, user-context assumptions and behavior for bulk updates. Prefer configuration when it satisfies requirements and can be maintained.
