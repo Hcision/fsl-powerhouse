@@ -12,4 +12,6 @@ Read `${CLAUDE_PLUGIN_ROOT}/knowledge/research-protocol.md`. From `${CLAUDE_PLUG
 3. For appointment booking, trace availability lookup, displayed slots, booking, rescheduling, cancellation and confirmation. Verify the actual API contract, arrival window semantics, reassignment and concurrent requests.
 4. Build a same-data scenario matrix across booking, dispatcher console and optimization. Include DST, boundaries, travel, absences, sparse availability, conflicting constraints and no-slot behavior.
 
+Before searching, read `${CLAUDE_SKILL_DIR}/reference.md` for FSL Apex entry points, the booking sequence and ESO differences. Re-verify any anchor that a decision depends on.
+
 Return decisions and findings with source URLs, implementation evidence, checks performed and unresolved items.

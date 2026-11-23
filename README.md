@@ -26,7 +26,7 @@ Try: “Use the FSL Powerhouse to review the scheduling flow in this repo. Deter
 | Path | Purpose |
 | --- | --- |
 | `agents/` | Eleven specialists for architecture, development, Field Service, security, QA and releases |
-| `skills/` | Fifteen task-specific playbooks with evidence and validation requirements |
+| `skills/` | Fifteen task-specific playbooks with evidence and validation requirements. The scheduling and preventive maintenance skills carry a `reference.md` of API anchors read from official documentation |
 | `knowledge/sources.json` | Curated official reference catalog |
 | `knowledge/research-protocol.md` | Documentation workflow and Field Service topic map |
 | `knowledge/release-baseline.md` | Initial release baseline and verified November Field Service changes |

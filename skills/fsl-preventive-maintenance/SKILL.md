@@ -12,4 +12,6 @@ Read `${CLAUDE_PLUGIN_ROOT}/knowledge/research-protocol.md`. From `${CLAUDE_PLUG
 3. Build a matrix for multi-asset plans, overlapping recurrence, edits to active plans, time zones, month end, cutoff dates, duplicate prevention, retries, partial failures, locking and high-volume batches.
 4. Where a custom Builder, projection or simulation exists, compare its output with operational generation for identical inputs. Treat custom limits and job cadence as project-specific until measured.
 
+Before searching, read `${CLAUDE_SKILL_DIR}/reference.md` for object and field anchors, generation behavior and known traps. Re-verify any anchor that a decision depends on.
+
 Return decisions and findings with source URLs, implementation evidence, checks performed and unresolved items.

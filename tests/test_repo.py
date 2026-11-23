@@ -80,6 +80,8 @@ class RepoTest(unittest.TestCase):
             self.assertNotIn("../", content, f"{path}: use ${{CLAUDE_PLUGIN_ROOT}}")
             for target in re.findall(r"\$\{CLAUDE_PLUGIN_ROOT\}/([\w./-]+\.\w+)", content):
                 self.assertTrue((ROOT / target).is_file(), f"{path}: {target}")
+            for target in re.findall(r"\$\{CLAUDE_SKILL_DIR\}/([\w./-]+\.\w+)", content):
+                self.assertTrue((path.parent / target).is_file(), f"{path}: {target}")
             listed = re.search(r"topics needed among ([a-z, -]+)\.", content)
             if listed:
                 self.assertLessEqual(set(listed[1].split(", ")), topics, path)
